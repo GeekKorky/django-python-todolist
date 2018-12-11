@@ -1,6 +1,6 @@
 # django-python-todolist
 
-A small todo list application
+A small todo list application that can be run on local machine.
 
 ```
 git clone https://github.com/GeekKorky/django-python-todolist
