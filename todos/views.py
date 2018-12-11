@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Todo
-from django.contrib.auth.forms import UserCreationForm
+from todos.forms import RegistrationForm
 
 
 def index(request):
@@ -35,12 +35,12 @@ def add(request):
 
 def register(request):
     if (request.method == 'POST'):
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/todos/')
+            return redirect("/todos")
     else:
-        form = UserCreationForm()
+        form = RegistrationForm(request.POST)
 
         args = {'form': form}
         return render(request, 'reg_form.html', args)
