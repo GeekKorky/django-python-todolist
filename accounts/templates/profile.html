@@ -1,0 +1,8 @@
+{% include 'partials/header.html' %}
+<h1>Profile</h1>
+<p>Username: {{ user.username }}</p>
+<p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Email: {{ user.email }}</p>
+<br />
+<a href="/accounts/profile/edit/" class="btn btn-primary">Edit</a><br />
+{% include 'partials/footer.html' %}

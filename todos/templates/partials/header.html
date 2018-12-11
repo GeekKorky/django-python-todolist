@@ -12,7 +12,7 @@
     />
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Home</title>
+    <title>Home | Todo App</title>
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -57,8 +57,9 @@
                 >Options</a
               >
               <div class="dropdown-menu" aria-labelledby="dropdown01">
+                
+                <a class="dropdown-item" href="/accounts/profile/">Profile</a>
                 <a class="dropdown-item" href="/todos/register/">Register</a>
-                <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="/todos/logout/">Logout</a>
               </div>
             </li>
