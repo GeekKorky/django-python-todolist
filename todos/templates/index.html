@@ -1,9 +1,11 @@
 {% include 'partials/header.html' %}
-<ul>
+<ul class="list-group">
   {% for todo in todos %}
-  <li>
-    <a href="/todos/details/{{ todo.id }}"> {{ todo.title }}</a> :
-    {{ todo.text }}
+  <li class="list-group-item">
+    <a href="/todos/details/{{ todo.id }}">
+      <h3>{{ todo.title }}</h3></a
+    >
+    <p class="text-muted">{{ todo.text }}</p>
   </li>
   {% endfor %}
 </ul>

@@ -1,8 +1,11 @@
-body{
+body {
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
+.main {
+  margin-top: 6rem !important;
+}
 
 ul {
   list-style: none !important;
