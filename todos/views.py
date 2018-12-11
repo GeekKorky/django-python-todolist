@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Todo
+from django.contrib.auth.forms import UserCreationForm
 
 
 def index(request):
@@ -30,3 +31,16 @@ def add(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')
+
+
+def register(request):
+    if (request.method == 'POST'):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/todos/')
+    else:
+        form = UserCreationForm()
+
+        args = {'form': form}
+        return render(request, 'reg_form.html', args)

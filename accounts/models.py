@@ -15,6 +15,9 @@ class Accounts(models.Model):
     class Meta:
         verbose_name_plural = "Accounts"
 
+    def __str__(self):
+        return str(self.user)
+
 
 def create_profile(sender, **kwargs):
     if kwargs['created']:
