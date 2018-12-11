@@ -8,7 +8,7 @@ from django.contrib.auth import update_session_auth_hash
 
 
 def index(request):
-    return HttpResponse('Home Accounts')
+    return redirect('/todos/login/')
 
 
 def view_profile(request):
