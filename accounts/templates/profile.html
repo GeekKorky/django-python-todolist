@@ -3,6 +3,10 @@
 <p>Username: {{ user.username }}</p>
 <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
 <p>Email: {{ user.email }}</p>
+<p>Description: {{ user.accounts.description }}</p>
+<p>City: {{ user.accounts.city }}</p>
+<p>Website: {{ user.accounts.website }}</p>
+<p>Phone: {{ user.accounts.phone }}</p>
 <br />
 <a href="/accounts/profile/edit/" class="btn btn-primary">Edit</a><br />
 {% include 'partials/footer.html' %}
