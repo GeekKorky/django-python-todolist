@@ -9,6 +9,11 @@ class AccountsAdmin(admin.ModelAdmin):
     def user_info(self, obj):
         return obj.description
 
+    def get_queryset(self, request):
+        queryset = super(AccountsAdmin, self).get_queryset(request)
+        queryset = queryset.order_by('-phone', 'user')
+        return queryset
+
     user_info.short_description = 'Info'
 
 
