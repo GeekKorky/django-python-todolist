@@ -71,17 +71,11 @@
             </li>
             {% endif %}
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
+           {% if user.is_authenticated %}
+           <h5 class="text-white pt-2">Welcome!, {{user.first_name}} {{user.last_name}}</h5>
+           {% else %}
+           <h5 class="text-white pt-2">Welcome!, Guest</h5>
+           {% endif %}
         </div>
       </nav>
      
