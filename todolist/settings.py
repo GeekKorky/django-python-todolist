@@ -135,5 +135,7 @@ LOGIN_EXEMPT_URLS = (r'^todos/logout/$', r'^todos/register/$',
                      r'^accounts/profile/reset-password/$',
                      r'^accounts/profile/reset-password/done/$')
 
-EMAIL_HOST = 'ECP-GATEWAY.ASTEC-POWER.COM'
-EMAIL_PORT = 25
+
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
