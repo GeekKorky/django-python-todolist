@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^profile/$', views.view_profile, name='view_profile'),
     url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
     url(r'^profile/password/$', views.change_password, name='change_password'),
-    url(r'^profile/reset-password/$', password_reset, name='reset_password'),
+    url(r'^profile/reset-password/$', password_reset,{'template_name': 'reset-password.html'}, name='reset_password'),
     url(r'^profile/reset-password/done/$',
         password_reset_done,
         name='password_reset_done'),
