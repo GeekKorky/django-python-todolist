@@ -127,6 +127,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'todolist/media')
+
 LOGIN_REDIRECT_URL = '/todos/'
 
 LOGIN_URL = '/todos/login/'
@@ -134,8 +137,6 @@ LOGIN_URL = '/todos/login/'
 LOGIN_EXEMPT_URLS = (r'^todos/logout/$', r'^todos/register/$',
                      r'^accounts/profile/reset-password/$',
                      r'^accounts/profile/reset-password/done/$')
-
-
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025

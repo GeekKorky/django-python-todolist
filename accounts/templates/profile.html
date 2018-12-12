@@ -1,12 +1,13 @@
 {% include 'partials/header.html' %}
 <h1>Profile</h1>
-<p>Username: {{ user.username }}</p>
-<p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
-<p>Email: {{ user.email }}</p>
-<p>Description: {{ user.accounts.description }}</p>
-<p>City: {{ user.accounts.city }}</p>
-<p>Website: {{ user.accounts.website }}</p>
-<p>Phone: {{ user.accounts.phone }}</p>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>Fullname</strong>: {{ user.first_name }} {{ user.last_name }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Description:</strong> {{ user.accounts.description }}</p>
+<p><strong>City:</strong> {{ user.accounts.city }}</p>
+<p><strong>Website:</strong> {{ user.accounts.website }}</p>
+<p><strong>Phone:</strong> {{ user.accounts.phone }}</p>
+<img src="{{ user.accounts.image.url }}" width="240" /> <br />
 <br />
 <a href="/accounts/profile/edit/" class="btn btn-primary">Edit</a><br />
 {% include 'partials/footer.html' %}
