@@ -5,17 +5,18 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from todos.forms import EditProfileForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
     return redirect('/todos/login/')
 
-
+@login_required
 def view_profile(request):
     args = {'user': request.user}
     return render(request, 'profile.html', args)
 
-
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)

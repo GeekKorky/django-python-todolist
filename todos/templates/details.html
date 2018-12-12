@@ -2,5 +2,8 @@
 <h1>{{ todo.title }}</h1>
 <h4 class="text-muted">{{ todo.text }}</h4>
 <p class="text-muted">{{ todo.created_at }}</p>
-<a class="btn btn-primary text-white" href="/todos"><- Back</a> <br />
+<a class="btn btn-primary text-white" href="/todos"><- Back</a>
+<a class="btn btn-primary text-white" href="/todos/details/edit/{{ todo.id }}/"
+  >Edit</a
+><br />
 {% include 'partials/footer.html' %}
