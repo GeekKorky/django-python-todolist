@@ -1,6 +1,7 @@
 {% include 'partials/header.html' %}
 
 <form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" name="title" id="title" class="form-control" />

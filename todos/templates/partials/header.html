@@ -42,10 +42,9 @@
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="/todos/add">Add</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="/todos/login/">Login</a>
-            </li>
+           
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -59,10 +58,18 @@
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 
                 <a class="dropdown-item" href="/accounts/profile/">Profile</a>
-                <a class="dropdown-item" href="/todos/register/">Register</a>
+                 
                 <a class="dropdown-item" href="/todos/logout/">Logout</a>
               </div>
             </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/todos/login/">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/todos/register/">Register</a>
+            </li>
+            {% endif %}
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input
