@@ -131,8 +131,9 @@ LOGIN_REDIRECT_URL = '/todos/'
 
 LOGIN_URL = '/todos/login/'
 
-LOGIN_EXEMPT_URLS = (r'^todos/logout/$',
-                     r'^todos/register/$')
+LOGIN_EXEMPT_URLS = (r'^todos/logout/$', r'^todos/register/$',
+                     r'^accounts/profile/reset-password/$',
+                     r'^accounts/profile/reset-password/done/$')
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'ECP-GATEWAY.ASTEC-POWER.COM'
+EMAIL_PORT = 25
