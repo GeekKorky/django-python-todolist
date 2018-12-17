@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Todo
 from todos.forms import RegistrationForm
- 
 
 
 def index(request):
@@ -32,6 +31,24 @@ def add(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')
+
+
+def edit(request, id):
+    if (request.method == 'POST'):
+
+        todo = Todo.objects.get(id=id)
+
+        todo.title = request.POST.get('title')
+        todo.text = request.POST.get('text')
+        todo.save()
+        return redirect("/todos")
+
+    else:
+
+        todo = Todo.objects.get(id=id)
+
+        context = {'todo': todo}
+        return render(request, 'edit.html', context)
 
 
 def register(request):
