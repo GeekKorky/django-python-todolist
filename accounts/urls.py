@@ -24,4 +24,7 @@ urlpatterns = [
     url(r'^profile/reset-password/complete/$',
         password_reset_complete,
         name='password_reset_complete'),
+    url(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$',
+        views.change_friends,
+        name='change_friends')
 ]
