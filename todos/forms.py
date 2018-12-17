@@ -22,7 +22,6 @@ class RegistrationForm(UserCreationForm):
             user.save()
 
         return redirect('/todos')
-        
 
 
 class EditProfileForm(UserChangeForm):

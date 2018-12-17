@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Todo
+from django.contrib.auth.models import User
 from todos.forms import RegistrationForm
 
 
 def index(request):
 
     todos = Todo.objects.all()[:10]
-
-    context = {'name': 'Kirk Alain', 'todos': todos}
+    users = User.objects.exclude(id=request.user.id)
+    context = {'name': 'Kirk Alain', 'todos': todos, 'users': users}
     return render(request, 'index.html', context)
 
 

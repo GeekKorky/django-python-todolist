@@ -1,12 +1,31 @@
 {% include 'partials/header.html' %}
-<ul class="list-group">
-  {% for todo in todos %}
-  <li class="list-group-item">
-    <a href="/todos/details/{{ todo.id }}">
-      <h3>{{ todo.title }}</h3></a
-    >
-    <p class="text-muted">{{ todo.text }}</p>
-  </li>
-  {% endfor %}
-</ul>
+
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>Todo List</h2>
+      <ul class="list-group">
+        {% for todo in todos %}
+        <li class="list-group-item">
+          <a href="/todos/details/{{ todo.id }}">
+            <h3>{{ todo.title }}</h3></a
+          >
+          <p class="text-muted">{{ todo.text }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h2>Users List</h2>
+      <ul class="list-group">
+        {% for user in users %}
+
+        <li class="list-group-item">{{ user.username }}</li>
+
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
 {% include 'partials/footer.html' %}

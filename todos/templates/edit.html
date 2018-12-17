@@ -3,7 +3,7 @@
 <form method="post">
   {% csrf_token %}
   <div class="form-group">
-    <label for="title">Title</label>
+    <label>Title</label>
     <input
       type="text"
       name="title"
@@ -12,10 +12,9 @@
       value="{{todo.title}}"
     />
   </div>
-
   <div class="form-group">
-    <label for="text">Text</label>
-    <textarea name="text" id="text" cols="30" rows="5" class="form-control">
+    <label>Text</label>
+    <textarea name="text" cols="30" rows="5" class="form-control">
       {{ todo.text }}</textarea
     >
   </div>
