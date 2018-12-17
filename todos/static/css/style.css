@@ -1,8 +1,7 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
 }
-
 
 body {
   padding-left: 2rem;
@@ -21,4 +20,9 @@ ul {
 a {
   color: green;
   text-decoration: none !important;
+}
+
+.title {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }

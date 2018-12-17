@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    #url(r'^$', views.index, name='index'),
     url(r'^login/$', views.index, name='index'),
     url(r'^profile/$', views.view_profile, name='view_profile'),
     url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
