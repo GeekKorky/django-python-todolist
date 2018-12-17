@@ -21,7 +21,7 @@
         {% for user in users %}
 
         <li class="list-group-item">
-          <a href="/accounts/profile/">{{ user.username }}</a>
+          <a href="/accounts/profile/{{user.id}}/">{{ user.username }}</a>
         </li>
 
         {% endfor %}
@@ -31,7 +31,7 @@
         {% for friend in friends %}
 
         <li class="list-group-item">
-          <a href="/accounts/profile/">{{ friend.username }}</a>
+          <a href="/accounts/profile/{{user.id}}/">{{ friend.username }}</a>
         </li>
 
         {% endfor %}

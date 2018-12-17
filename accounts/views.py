@@ -17,6 +17,14 @@ def view_profile(request):
     return render(request, 'profile.html', args)
 
 
+def view_profile_with_pk(request, id):
+
+    user = User.objects.get(id=id)
+
+    args = {'user': user}
+    return render(request, 'profile.html', args)
+
+
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
