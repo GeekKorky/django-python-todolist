@@ -21,7 +21,14 @@
         {% for user in users %}
 
         <li class="list-group-item">
-          <a href="/accounts/profile/{{user.id}}/">{{ user.username }}</a>
+          <a href="/accounts/profile_view/{{user.id}}/">{{ user.username }}</a>
+          {% if not user in friends %}
+          <a
+            href="{% url 'change_friends' operation='add'  pk=user.id %}"
+            class="float-right btn btn-success btn-sm"
+            >ADD FRIEND</a
+          >
+          {% endif %}
         </li>
 
         {% endfor %}
@@ -29,9 +36,15 @@
       <h2 class="title">Friends</h2>
       <ul class="list-group">
         {% for friend in friends %}
-
         <li class="list-group-item">
-          <a href="/accounts/profile/{{user.id}}/">{{ friend.username }}</a>
+          <a href="/accounts/profile_view/{{user.id}}/"
+            >{{ friend.username }}
+          </a>
+          <a
+            href="{% url 'change_friends' operation='remove'  pk=friend.id %}"
+            class="float-right btn btn-danger btn-sm"
+            >UNFRIEND</a
+          >
         </li>
 
         {% endfor %}
