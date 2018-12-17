@@ -5,5 +5,9 @@
 <a class="btn btn-primary text-white" href="/todos"><- Back</a>
 <a class="btn btn-primary text-white" href="/todos/details/edit/{{ todo.id }}/"
   >Edit</a
+>&nbsp;<a
+  class="btn btn-danger text-white"
+  href="/todos/details/delete/{{ todo.id }}/"
+  >Delete</a
 ><br />
 {% include 'partials/footer.html' %}

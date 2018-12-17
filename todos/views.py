@@ -51,6 +51,12 @@ def edit(request, id):
         return render(request, 'edit.html', context)
 
 
+def delete(request, id):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+    return redirect("/todos")
+
+
 def register(request):
     if (request.method == 'POST'):
         form = RegistrationForm(request.POST)
