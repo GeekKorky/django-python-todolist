@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Todo
+from todos.models import Todo, Friend
 from django.contrib.auth.models import User
 from todos.forms import RegistrationForm
 
@@ -9,8 +9,21 @@ def index(request):
 
     todos = Todo.objects.all()[:10]
     users = User.objects.exclude(id=request.user.id)
-    context = {'name': 'Kirk Alain', 'todos': todos, 'users': users}
-    return render(request, 'index.html', context)
+    try:
+        friend = Friend.objects.get(current_user=request.user)
+        friends = friend.users.all()
+        context = {
+            'name': 'Kirk Alain',
+            'todos': todos,
+            'users': users,
+            'friends': friends
+        }
+        return render(request, 'index.html', context)
+
+    except Friend.DoesNotExist:
+
+        context = {'name': 'Kirk Alain', 'todos': todos, 'users': users}
+        return render(request, 'index.html', context)
 
 
 def details(request, id):

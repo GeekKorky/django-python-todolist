@@ -26,6 +26,16 @@
 
         {% endfor %}
       </ul>
+      <h2 class="title">Friends</h2>
+      <ul class="list-group">
+        {% for friend in friends %}
+
+        <li class="list-group-item">
+          <a href="/accounts/profile/">{{ friend.username }}</a>
+        </li>
+
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </div>
