@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Accounts
 from todos.models import Friend
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from todos.forms import EditProfileForm
+from todos.forms import EditUserProfileForm
 from django.contrib.auth import update_session_auth_hash
+from .models import Accounts
 
 
 def index(request):
@@ -26,16 +27,33 @@ def view_profile_with_pk(request, id):
 
 
 def edit_profile(request):
+    content = {}
+    profile = request.user.accounts
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
+        form2 = EditUserProfileForm(
+            request.POST, request.FILES, instance=profile)
+        content['form'] = form
+        content['form2'] = form2
 
-        if form.is_valid():
+        if form.is_valid() and form2.is_valid():
             form.save()
+            form2.save()
+            #handle_uploaded_file(request.FILES['file'])
             return redirect('/accounts/profile')
+
+        else:
+
+            content['form.errors'] = form.errors
+            content['form2.errors'] = form2.errors
+
     else:
         form = EditProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'edit_profile.html', args)
+        form2 = EditUserProfileForm(instance=profile)
+        content['form'] = form
+        content['form2'] = form2
+
+        return render(request, 'edit_profile.html', content)
 
 
 def change_password(request):

@@ -1,5 +1,5 @@
 {% include 'partials/header.html' %}
-<h1>Profile</h1>
+<h3>Profile Details</h3>
 <p><strong>Username:</strong> {{ user.username }}</p>
 <p><strong>Fullname</strong>: {{ user.first_name }} {{ user.last_name }}</p>
 <p><strong>Email:</strong> {{ user.email }}</p>
@@ -10,5 +10,8 @@
 {% if user.accounts.image %}
 <img src="{{ user.accounts.image.url }}" width="240" /> {% endif %} <br />
 <br />
-<a href="/accounts/profile/edit/" class="btn btn-primary">Edit</a><br />
+{% if user == request.user %}
+<a href="/accounts/profile/edit/" class="btn btn-primary">Edit</a> {% endif %}
+
+<br />
 {% include 'partials/footer.html' %}

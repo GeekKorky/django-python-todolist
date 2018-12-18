@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django import forms
+from accounts.models import Accounts
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
@@ -24,7 +25,13 @@ class RegistrationForm(UserCreationForm):
         return redirect('/todos')
 
 
-class EditProfileForm(UserChangeForm):
+class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password')
+        fields = ('first_name', 'last_name', 'email')
+
+
+class EditUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Accounts
+        fields = ('city', 'description', 'image')

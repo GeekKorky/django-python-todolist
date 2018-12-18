@@ -10,7 +10,7 @@ class AccountsManager(models.Manager):
 
 
 class Accounts(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    userprofile = models.OneToOneField(User, on_delete=models.PROTECT)
     description = models.CharField(max_length=100, default='')
     city = models.CharField(max_length=100, default='')
     website = models.URLField(default='')
@@ -23,11 +23,11 @@ class Accounts(models.Model):
     class Meta:
         verbose_name_plural = "Accounts"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.user.username
 
 
-def create_profile(sender, **kwargs):
+def create_profile(sender, instance, **kwargs):
     if kwargs['created']:
         user_profile = Accounts.objects.create(user=kwargs['instance'])
 
